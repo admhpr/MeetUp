@@ -7,4 +7,3 @@
 * https://en.wikipedia.org/wiki/Web_Mercator
 * https://www.youtube.com/watch?v=ZiYdOwOrGyc
 
-the access_token to use the mapbox API is the dropbox.

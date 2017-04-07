@@ -7,6 +7,7 @@ var clon = 0;
 
 //31.2304° N, 121.4737° E for Shanghai S & W are negative
 //43.8014° N, 91.2396° W for LaCrosse
+// Belfast 54.607868, -5.926437
 var lat = 31.2304;
 var lon = 121.4737;
 
@@ -34,7 +35,7 @@ function preload() {
 //apply web mercator formula x y top left 0,0 bottom right 256,256
 
 function mercX(lon) {
-    lon = radians(lon) //degrees is from the observers perspective radians are from the movers.
+    lon = radians(lon); //degrees is from the observers perspective radians are from the movers.
     var a = (256 / PI) * pow(2, zoom); //mapbox uses tiles 512,512
     var b = lon + PI;
     return a * b;
@@ -66,26 +67,26 @@ function setup() {
     for (i = 0; i < earthquakes.length; i++) {
         var data = earthquakes[i].split(/,/); // regex
         //console.log(data);
-        var lat = data[1];
-        var lon = data[2];
-        var mag = data[4]; //magnitude
-
-        //mag is logarithmic.
-        var x = mercX(lon) - cx;
-        var y = mercY(lat) - cy;
-        // inverse log
-        mag = pow(10, mag);
-        //square root to map to diameter
-        mag = sqrt(mag);
-
-        //creates new magmax
-        var magmax = sqrt(pow(10, 10));
-        //maps the mag range to a scale.
-        var d = map(mag, 0, magmax, 0, 1000);
-
-        stroke(255, 0, 255);
-        fill(255, 255, 255, 200);
-        ellipse(x, y, d, d);
+        // var lat = data[1];
+        // var lon = data[2];
+        // var mag = data[4]; //magnitude
+        //
+        // //mag is logarithmic.
+        // var x = mercX(lon) - cx;
+        // var y = mercY(lat) - cy;
+        // // inverse log
+        // mag = pow(10, mag);
+        // //square root to map to diameter
+        // mag = sqrt(mag);
+        //
+        // //creates new magmax
+        // var magmax = sqrt(pow(10, 10));
+        // //maps the mag range to a scale.
+        // var d = map(mag, 0, magmax, 0, 1000);
+        //
+        // stroke(255, 0, 255);
+        // fill(255, 255, 255, 200);
+        // ellipse(x, y, d, d);
 
 
     }
@@ -96,6 +97,7 @@ function setup() {
     // var x = mercX(lon) - cx;
     // var y = mercY(lat) - cy;
     // ellipse(x, y, 10, 10);
+
 
     //LaCrosse
     noStroke();
